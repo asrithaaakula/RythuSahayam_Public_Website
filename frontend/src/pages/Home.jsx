@@ -89,13 +89,13 @@ export default function Home() {
       <section className="text-center pt-10 pb-8 px-4 sm:px-[5%] bg-gradient-to-b from-[#f2f4e9] to-[#fbfaf5] border-b border-[#e9ede0]">
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#edf2ee] text-gray-700 text-xs font-semibold mb-3 border border-[#d6e0d8]">
-            <span className="text-amber-500 font-bold text-sm">✦</span> {t('heroBadge')}
+            <span className="text-amber-500 font-bold text-sm">✦</span> {t('home.heroBadge', 'Better Farming • Brighter Future')}
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-[42px] font-extrabold text-[#111827] tracking-tight leading-tight mb-2.5">
-            {t('heroHeading')}
+            {t('home.heroHeading', 'Support for Every Farmer')}
           </h1>
           <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            {t('heroDescription')}
+            {t('home.heroDescription', 'Find agricultural services, government support, and practical guidance for Prathuru & Gundimeda.')}
           </p>
 
           {/* ================= FARMER SUPPORT SEARCH PANEL ================= */}
@@ -104,7 +104,7 @@ export default function Home() {
               {/* Field 1: Village */}
               <div>
                 <label className="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5">
-                  {t('villageLabel')}
+                  {t('home.villageLabel', 'Village')}
                 </label>
                 <select
                   value={village}
@@ -119,14 +119,14 @@ export default function Home() {
               {/* Field 2: Crop Type */}
               <div>
                 <label className="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5">
-                  {t('cropTypeLabel')}
+                  {t('home.cropTypeLabel', 'Crop Type')}
                 </label>
                 <select
                   value={cropType}
                   onChange={(e) => setCropType(e.target.value)}
                   className="w-full p-2.5 sm:p-3 text-sm bg-white border border-gray-200 rounded-lg text-gray-800 focus:outline-none focus:ring-1 focus:ring-emerald-700 font-medium"
                 >
-                  <option value="Select Crop Type">{t('selectCropType')}</option>
+                  <option value="Select Crop Type">{t('home.selectCropType', 'Select Crop Type')}</option>
                   <option value="Paddy">{isTelugu ? 'వరి (Paddy)' : 'Paddy (వరి)'}</option>
                   <option value="Cotton">{isTelugu ? 'ప్రత్తి (Cotton)' : 'Cotton (ప్రత్తి)'}</option>
                   <option value="Chilli">{isTelugu ? 'మిరప (Chilli)' : 'Chilli (మిరప)'}</option>
@@ -139,14 +139,14 @@ export default function Home() {
               {/* Field 3: Problem Category */}
               <div>
                 <label className="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5">
-                  {t('problemCategoryLabel')}
+                  {t('home.problemCategoryLabel', 'Problem Category')}
                 </label>
                 <select
                   value={problemCategory}
                   onChange={(e) => setProblemCategory(e.target.value)}
                   className="w-full p-2.5 sm:p-3 text-sm bg-white border border-gray-200 rounded-lg text-gray-800 focus:outline-none focus:ring-1 focus:ring-emerald-700 font-medium"
                 >
-                  <option value="Select Category">{t('selectCategory')}</option>
+                  <option value="Select Category">{t('home.selectCategory', 'Select Category')}</option>
                   <option value="Irrigation">{isTelugu ? 'సాగునీరు & నీటి కొరత' : 'Irrigation & Water'}</option>
                   <option value="Electricity">{isTelugu ? 'వ్యవసాయ విద్యుత్ & మోటార్' : 'Electricity & Power'}</option>
                   <option value="Seeds and Fertilizers">{isTelugu ? 'విత్తనాలు & ఎరువుల లభ్యత' : 'Seeds and Fertilizers'}</option>
@@ -167,7 +167,7 @@ export default function Home() {
                   className="w-full p-2.5 sm:p-3 bg-[#0a1a15] hover:bg-[#152a22] text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 shadow-2xs transition cursor-pointer disabled:opacity-70"
                 >
                   <Search className="w-4 h-4 text-sky-400" />
-                  <span>{searchLoading ? t('searching') : t('findSupportBtn')}</span>
+                  <span>{searchLoading ? t('common.searching', 'Searching...') : t('home.findSupportBtn', 'Find Support')}</span>
                 </button>
               </div>
             </form>
@@ -242,9 +242,9 @@ export default function Home() {
         <section id="services">
           <div className="flex items-center justify-between mb-5">
             <h2 className="text-2xl font-bold text-[#111827]">
-              {t('essentialServicesHeading')}
+              {t('home.essentialServicesHeading', 'Essential Farmer Services')}
             </h2>
-            <span className="text-xs text-[#61717e] hidden sm:inline">{t('essentialServicesSub')}</span>
+            <span className="text-xs text-[#61717e] hidden sm:inline">{t('home.essentialServicesSub', 'Official portals & local tools')}</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -258,15 +258,15 @@ export default function Home() {
                   💧
                 </div>
                 <h3 className="text-[17px] font-bold text-[#111827] group-hover:text-[#07503c] mb-2">
-                  {t('service1Title')}
+                  {t('home.service1Title', 'Irrigation Support')}
                 </h3>
                 <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-6">
-                  {t('service1Desc')}
+                  {t('home.service1Desc', 'Water availability schedules, canal timings, and irrigation guidance.')}
                 </p>
               </div>
               <div className="pt-2">
                 <span className="text-xs font-semibold text-gray-700 hover:text-emerald-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  {t('common.viewDetails')}
+                  {t('common.viewDetails', 'View Details →')}
                 </span>
               </div>
             </Link>
@@ -281,15 +281,15 @@ export default function Home() {
                   🌱
                 </div>
                 <h3 className="text-[17px] font-bold text-[#111827] group-hover:text-[#07503c] mb-2">
-                  {t('service2Title')}
+                  {t('home.service2Title', 'Seeds & Fertilizers')}
                 </h3>
                 <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-6">
-                  {t('service2Desc')}
+                  {t('home.service2Desc', 'Subsidized input availability, seed centers, and responsible usage advice.')}
                 </p>
               </div>
               <div className="pt-2">
                 <span className="text-xs font-semibold text-gray-700 hover:text-emerald-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  {t('common.viewDetails')}
+                  {t('common.viewDetails', 'View Details →')}
                 </span>
               </div>
             </Link>
@@ -304,15 +304,15 @@ export default function Home() {
                   🏛️
                 </div>
                 <h3 className="text-[17px] font-bold text-[#111827] group-hover:text-[#07503c] mb-2">
-                  {t('service3Title')}
+                  {t('home.service3Title', 'Government Schemes & Loans')}
                 </h3>
                 <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-6">
-                  {t('service3Desc')}
+                  {t('home.service3Desc', 'Rythu Bharosa, PM-KISAN, crop insurance, and low-interest loan eligibility.')}
                 </p>
               </div>
               <div className="pt-2">
                 <span className="text-xs font-semibold text-gray-700 hover:text-emerald-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  {t('common.viewDetails')}
+                  {t('common.viewDetails', 'View Details →')}
                 </span>
               </div>
             </Link>
@@ -327,15 +327,15 @@ export default function Home() {
                   🐛
                 </div>
                 <h3 className="text-[17px] font-bold text-[#111827] group-hover:text-[#07503c] mb-2">
-                  {t('service4Title')}
+                  {t('home.service4Title', 'Report Crop Problems')}
                 </h3>
                 <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-6">
-                  {t('service4Desc')}
+                  {t('home.service4Desc', 'Pests, disease, electricity, canal water, and infrastructure issues.')}
                 </p>
               </div>
               <div className="pt-2">
                 <span className="text-xs font-semibold text-gray-700 hover:text-emerald-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  {t('common.viewDetails')}
+                  {t('common.viewDetails', 'View Details →')}
                 </span>
               </div>
             </Link>
@@ -345,7 +345,7 @@ export default function Home() {
         {/* ================= LOCAL AGRICULTURAL SUPPORT ================= */}
         <section id="local-support">
           <h2 className="text-2xl font-bold text-[#111827] mb-6">
-            {t('localSupportHeading')}
+            {t('home.localSupportHeading', 'Local Agricultural Support')}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -362,10 +362,10 @@ export default function Home() {
                 </div>
 
                 <h3 className="text-[17px] font-bold text-[#111827] mb-1">
-                  {t('card1Title')}
+                  {t('home.card1Title', 'Weather & Crop Alerts')}
                 </h3>
                 <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-3">
-                  {t('card1Desc')}
+                  {t('home.card1Desc', 'Timely local weather updates, rain alerts, and weekly crop advisories.')}
                 </p>
 
                 {/* Village Selector & Live Weather Metrics */}
@@ -429,10 +429,10 @@ export default function Home() {
                 </div>
 
                 <h3 className="text-[17px] font-bold text-[#111827] mb-1">
-                  {t('card2Title')}
+                  {t('home.card2Title', 'Market Price Updates')}
                 </h3>
                 <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-3">
-                  {t('card2Desc')}
+                  {t('home.card2Desc', 'Check live market prices for your crops across nearby AP agricultural mandis.')}
                 </p>
 
                 {/* Local Price Ticker */}
@@ -481,10 +481,10 @@ export default function Home() {
                 </div>
 
                 <h3 className="text-[17px] font-bold text-[#111827] mb-1">
-                  {t('card3Title')}
+                  {t('home.card3Title', 'Soil Testing & Crop Advice')}
                 </h3>
                 <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-3">
-                  {t('card3Desc')}
+                  {t('home.card3Desc', 'Soil health card updates, nutrient testing, and expert crop recommendations.')}
                 </p>
 
                 {/* Soil Testing Summary */}
@@ -519,15 +519,14 @@ export default function Home() {
         {/* ================= COMMON PROBLEMS IN OUR VILLAGES ================= */}
         <section id="common-problems">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#0b4b3d]">
-              {t('commonProblemsHeading')}
+            <h2 className="text-xl sm:text-2xl font-bold text-[#111827]">
+              {t('home.commonProblemsHeading', 'Common Problems in Our Villages')}
             </h2>
             <Link
               to="/report-problem"
-              className="inline-flex items-center gap-1.5 bg-[#07503c] hover:bg-[#06483d] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full shadow-sm transition hover:shadow cursor-pointer self-start sm:self-auto"
+              className="inline-flex items-center gap-1.5 bg-[#0a1a15] hover:bg-[#152a22] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-lg shadow-2xs transition cursor-pointer self-start sm:self-auto"
             >
-              <span>{t('viewAllOptionsBtn')}</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>{t('home.viewAllOptionsBtn', 'View All Support Options →')}</span>
             </Link>
           </div>
 
