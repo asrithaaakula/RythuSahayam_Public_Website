@@ -38,81 +38,71 @@ export default function Navbar() {
     { name: t('navbar.schemes'), path: '/schemes' },
     { name: t('navbar.marketPrices'), path: '/market-prices' },
     { name: t('navbar.reportProblem'), path: '/report-problem' },
+    { name: t('navbar.trackComplaint') || 'Track Complaint', path: '/track-complaint' },
+    { name: t('navbar.dashboard') || 'Dashboard', path: '/dashboard' },
+    { name: t('navbar.adminPortal') || 'Admin Portal', path: '/admin' },
     { name: t('navbar.about'), path: '/about' }
   ];
 
   return (
-    <header className="sticky top-0 z-50 shadow-sm">
+    <header className="sticky top-0 z-50 shadow-xs">
       {/* Top Information Bar */}
-      <div className="bg-[#073e32] text-white px-4 md:px-[6%] py-2 text-xs md:text-[13px] flex justify-between items-center flex-wrap gap-2 transition-all">
-        <div className="flex items-center gap-2">
-          <MapPin className="w-3.5 h-3.5 text-emerald-300" />
+      <div className="bg-[#073e32] text-white px-4 md:px-[5%] py-1.5 text-xs flex justify-between items-center flex-wrap gap-2 transition-all">
+        <div className="flex items-center gap-1.5">
+          <span className="text-red-400">📍</span>
           <span className="font-medium tracking-wide">{t('common.topLocation')}</span>
         </div>
 
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
-            <Sprout className="w-3.5 h-3.5 text-emerald-300" />
+            <span className="text-emerald-300">🌱</span>
             <span className="text-emerald-50 font-medium">{t('common.topTagline')}</span>
           </div>
         </div>
       </div>
 
       {/* Main Navigation Bar */}
-      <nav className="bg-white border-b border-gray-100 px-4 md:px-[6%] py-3.5 flex items-center justify-between gap-3">
+      <nav className="bg-white border-b border-gray-200/80 px-4 md:px-[5%] py-2.5 flex items-center justify-between gap-3">
         {/* Brand Logo */}
-        <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-[#07503c] tracking-tight hover:opacity-90 transition shrink-0">
-          <span className="text-2xl">🌿</span>
-          <span className="font-extrabold text-[#07503c]">RythuSahayam</span>
+        <Link to="/" className="flex items-center gap-2 text-xl font-bold text-[#07503c] tracking-tight hover:opacity-90 transition shrink-0">
+          <div className="w-8 h-8 rounded-lg bg-[#eaf4ed] flex items-center justify-center text-lg">
+            🌱
+          </div>
+          <span className="font-extrabold text-[#07503c] text-[19px]">RythuSahayam</span>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+        <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                `px-2.5 xl:px-3 py-1.5 text-[14px] font-semibold transition-colors duration-150 rounded-md whitespace-nowrap ${
+                `px-2.5 py-1.5 text-[13px] font-medium transition-colors duration-150 rounded-md text-center leading-tight flex items-center justify-center ${
                   isActive
-                    ? 'text-[#07503c] bg-[#e3f1e7] font-bold'
-                    : 'text-[#193d39] hover:text-[#07503c] hover:bg-[#f6f9f7]'
+                    ? 'text-[#07503c] bg-[#e5ece6] font-bold'
+                    : 'text-gray-700 hover:text-[#07503c] hover:bg-[#f4f7f5]'
                 }`
               }
             >
-              {link.name}
+              <span className="max-w-[85px] truncate">{link.name}</span>
             </NavLink>
           ))}
-          {isAdmin && (
-            <NavLink
-              to="/admin"
-              className={({ isActive }) =>
-                `px-3 py-1.5 text-[14px] font-semibold flex items-center gap-1 rounded-md ${
-                  isActive
-                    ? 'text-amber-800 bg-amber-100 font-bold'
-                    : 'text-amber-700 hover:text-amber-900 hover:bg-amber-50'
-                }`
-              }
-            >
-              <Shield className="w-3.5 h-3.5" />
-              {t('navbar.admin')}
-            </NavLink>
-          )}
         </div>
 
         {/* Right side Language Switcher & Auth action */}
-        <div className="hidden lg:flex items-center gap-3 shrink-0">
+        <div className="hidden lg:flex items-center gap-2 shrink-0">
           {/* Global Language Selector Dropdown [ 🌐 English ▼ ] */}
           <div className="relative" ref={langRef}>
             <button
               type="button"
               onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className="flex items-center gap-2 bg-[#f0f5f2] hover:bg-[#e1ece5] text-[#07503c] px-3.5 py-2 rounded-lg text-xs font-bold border border-[#d2e2d8] transition shadow-xs cursor-pointer"
+              className="flex items-center gap-1.5 bg-white hover:bg-gray-50 text-gray-800 px-3 py-1.5 rounded-lg text-xs font-semibold border border-gray-300 transition shadow-2xs cursor-pointer"
               aria-label="Language selector"
             >
-              <Globe className="w-4 h-4 text-emerald-700" />
-              <span className="font-bold">{language === 'te' ? 'తెలుగు' : 'English'}</span>
-              <ChevronDown className={`w-3.5 h-3.5 text-emerald-800 transition-transform ${langDropdownOpen ? 'rotate-180' : ''}`} />
+              <Globe className="w-3.5 h-3.5 text-emerald-700" />
+              <span className="font-semibold">{language === 'te' ? 'తెలుగు' : 'English'}</span>
+              <ChevronDown className={`w-3 h-3 text-gray-500 transition-transform ${langDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {langDropdownOpen && (
@@ -159,11 +149,11 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                className="flex items-center gap-2 bg-[#07503c] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#06483d] shadow-sm transition"
+                className="flex items-center gap-1.5 bg-white border border-gray-300 text-gray-800 px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-gray-50 shadow-2xs transition"
               >
-                <User className="w-4 h-4 text-emerald-200" />
-                <span className="max-w-[130px] truncate">{user.full_name}</span>
-                <ChevronDown className="w-3.5 h-3.5 opacity-80" />
+                <User className="w-3.5 h-3.5 text-emerald-700" />
+                <span className="max-w-[110px] truncate">{user.full_name}</span>
+                <ChevronDown className="w-3 h-3 opacity-70" />
               </button>
 
               {userDropdownOpen && (
@@ -219,17 +209,11 @@ export default function Navbar() {
           ) : (
             <div className="flex items-center gap-2">
               <Link
-                to="/track-complaint"
-                className="text-xs font-semibold text-[#07503c] hover:bg-[#e3f1e7] px-2.5 py-2 rounded-md transition"
-              >
-                {t('navbar.trackStatus')}
-              </Link>
-              <Link
                 to="/login"
-                className="flex items-center gap-2 bg-[#07503c] hover:bg-[#06483d] text-white px-4 py-2.5 rounded-lg text-sm font-bold shadow-sm transition hover:shadow"
+                className="flex items-center gap-1.5 bg-white hover:bg-gray-50 text-gray-800 px-3 py-1.5 rounded-lg text-xs font-semibold border border-gray-300 transition shadow-2xs"
               >
-                <User className="w-4 h-4" />
-                {t('navbar.farmerLogin')}
+                <User className="w-3.5 h-3.5 text-gray-600" />
+                <span>{t('navbar.farmerLogin')}</span>
               </Link>
             </div>
           )}

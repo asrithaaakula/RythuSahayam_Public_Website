@@ -88,28 +88,28 @@ export default function Home() {
       {/* ================= HERO SECTION ================= */}
       <section className="text-center pt-10 pb-8 px-4 sm:px-[5%] bg-gradient-to-b from-[#f2f4e9] to-[#fbfaf5] border-b border-[#e9ede0]">
         <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e3f1e7] text-[#07503c] text-xs font-bold mb-3 tracking-wide border border-[#cae5d3]">
-            <span>🌱</span> {t('heroBadge')}
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#edf2ee] text-gray-700 text-xs font-semibold mb-3 border border-[#d6e0d8]">
+            <span className="text-amber-500 font-bold text-sm">✦</span> {t('heroBadge')}
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-[44px] font-extrabold text-[#06483d] tracking-tight leading-tight mb-2.5">
+          <h1 className="text-3xl sm:text-4xl md:text-[42px] font-extrabold text-[#111827] tracking-tight leading-tight mb-2.5">
             {t('heroHeading')}
           </h1>
-          <p className="text-[#61717e] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             {t('heroDescription')}
           </p>
 
           {/* ================= FARMER SUPPORT SEARCH PANEL ================= */}
-          <div className="mt-7 max-w-[1100px] mx-auto bg-white p-4 sm:p-5 rounded-[13px] border border-[#e2e7e7] shadow-md text-left">
-            <form onSubmit={handleSearch} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 items-end">
+          <div className="mt-8 max-w-[1050px] mx-auto bg-white p-5 rounded-2xl border border-gray-200/90 shadow-2xs text-left">
+            <form onSubmit={handleSearch} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
               {/* Field 1: Village */}
               <div>
-                <label className="block text-xs sm:text-[13px] font-bold text-[#123b38] mb-1.5">
+                <label className="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5">
                   {t('villageLabel')}
                 </label>
                 <select
                   value={village}
                   onChange={(e) => setVillage(e.target.value)}
-                  className="w-full p-2.5 sm:p-3 text-sm bg-white border border-[#dce2e2] rounded-lg text-[#123b38] focus:outline-none focus:ring-2 focus:ring-[#07503c] focus:border-transparent font-medium"
+                  className="w-full p-2.5 sm:p-3 text-sm bg-white border border-gray-200 rounded-lg text-gray-800 focus:outline-none focus:ring-1 focus:ring-emerald-700 font-medium"
                 >
                   <option value="Prathuru">{isTelugu ? 'ప్రాతూరు' : 'Prathuru'}</option>
                   <option value="Gundimeda">{isTelugu ? 'గుండిమెడ' : 'Gundimeda'}</option>
@@ -118,13 +118,13 @@ export default function Home() {
 
               {/* Field 2: Crop Type */}
               <div>
-                <label className="block text-xs sm:text-[13px] font-bold text-[#123b38] mb-1.5">
+                <label className="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5">
                   {t('cropTypeLabel')}
                 </label>
                 <select
                   value={cropType}
                   onChange={(e) => setCropType(e.target.value)}
-                  className="w-full p-2.5 sm:p-3 text-sm bg-white border border-[#dce2e2] rounded-lg text-[#123b38] focus:outline-none focus:ring-2 focus:ring-[#07503c] focus:border-transparent font-medium"
+                  className="w-full p-2.5 sm:p-3 text-sm bg-white border border-gray-200 rounded-lg text-gray-800 focus:outline-none focus:ring-1 focus:ring-emerald-700 font-medium"
                 >
                   <option value="Select Crop Type">{t('selectCropType')}</option>
                   <option value="Paddy">{isTelugu ? 'వరి (Paddy)' : 'Paddy (వరి)'}</option>
@@ -138,13 +138,13 @@ export default function Home() {
 
               {/* Field 3: Problem Category */}
               <div>
-                <label className="block text-xs sm:text-[13px] font-bold text-[#123b38] mb-1.5">
+                <label className="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5">
                   {t('problemCategoryLabel')}
                 </label>
                 <select
                   value={problemCategory}
                   onChange={(e) => setProblemCategory(e.target.value)}
-                  className="w-full p-2.5 sm:p-3 text-sm bg-white border border-[#dce2e2] rounded-lg text-[#123b38] focus:outline-none focus:ring-2 focus:ring-[#07503c] focus:border-transparent font-medium"
+                  className="w-full p-2.5 sm:p-3 text-sm bg-white border border-gray-200 rounded-lg text-gray-800 focus:outline-none focus:ring-1 focus:ring-emerald-700 font-medium"
                 >
                   <option value="Select Category">{t('selectCategory')}</option>
                   <option value="Irrigation">{isTelugu ? 'సాగునీరు & నీటి కొరత' : 'Irrigation & Water'}</option>
@@ -164,9 +164,9 @@ export default function Home() {
                 <button
                   type="submit"
                   disabled={searchLoading}
-                  className="w-full p-2.5 sm:p-3 bg-[#07503c] hover:bg-[#06483d] text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 shadow-sm transition hover:shadow-md cursor-pointer disabled:opacity-70"
+                  className="w-full p-2.5 sm:p-3 bg-[#0a1a15] hover:bg-[#152a22] text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 shadow-2xs transition cursor-pointer disabled:opacity-70"
                 >
-                  <Search className="w-4 h-4" />
+                  <Search className="w-4 h-4 text-sky-400" />
                   <span>{searchLoading ? t('searching') : t('findSupportBtn')}</span>
                 </button>
               </div>
@@ -241,102 +241,102 @@ export default function Home() {
         {/* ================= ESSENTIAL FARMER SERVICES ================= */}
         <section id="services">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#0b4b3d]">
+            <h2 className="text-2xl font-bold text-[#111827]">
               {t('essentialServicesHeading')}
             </h2>
             <span className="text-xs text-[#61717e] hidden sm:inline">{t('essentialServicesSub')}</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {/* CARD 1: IRRIGATION SUPPORT */}
             <Link
               to="/irrigation"
-              className="service-card group bg-white border border-[#e2e7e7] rounded-xl p-5 shadow-sm flex flex-col justify-between"
+              className="group bg-white border border-gray-200/90 rounded-2xl p-5 sm:p-6 shadow-2xs hover:shadow-md transition flex flex-col justify-between"
             >
               <div>
-                <div className="w-[52px] h-[52px] rounded-full bg-[#e3f1e7] flex items-center justify-center text-2xl text-[#07503c] mb-3 group-hover:bg-[#d2edd9] transition">
+                <div className="w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center text-2xl text-sky-600 mb-4 group-hover:scale-105 transition-transform">
                   💧
                 </div>
-                <h3 className="text-[17px] font-bold text-[#0b4b3d] group-hover:text-[#07503c] mb-1.5">
+                <h3 className="text-[17px] font-bold text-[#111827] group-hover:text-[#07503c] mb-2">
                   {t('service1Title')}
                 </h3>
-                <p className="text-sm text-[#61717e] leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-6">
                   {t('service1Desc')}
                 </p>
               </div>
-              <div className="mt-4 flex items-center justify-end">
-                <div className="w-7 h-7 rounded-full bg-[#f4f7f5] flex items-center justify-center text-[#07503c] group-hover:bg-[#07503c] group-hover:text-white transition">
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-0.5 transition" />
-                </div>
+              <div className="pt-2">
+                <span className="text-xs font-semibold text-gray-700 hover:text-emerald-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  {t('common.viewDetails')}
+                </span>
               </div>
             </Link>
 
             {/* CARD 2: SEEDS & FERTILIZERS */}
             <Link
               to="/crop-guidance"
-              className="service-card group bg-white border border-[#e2e7e7] rounded-xl p-5 shadow-sm flex flex-col justify-between"
+              className="group bg-white border border-gray-200/90 rounded-2xl p-5 sm:p-6 shadow-2xs hover:shadow-md transition flex flex-col justify-between"
             >
               <div>
-                <div className="w-[52px] h-[52px] rounded-full bg-[#e3f1e7] flex items-center justify-center text-2xl text-[#07503c] mb-3 group-hover:bg-[#d2edd9] transition">
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-2xl text-emerald-700 mb-4 group-hover:scale-105 transition-transform">
                   🌱
                 </div>
-                <h3 className="text-[17px] font-bold text-[#0b4b3d] group-hover:text-[#07503c] mb-1.5">
+                <h3 className="text-[17px] font-bold text-[#111827] group-hover:text-[#07503c] mb-2">
                   {t('service2Title')}
                 </h3>
-                <p className="text-sm text-[#61717e] leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-6">
                   {t('service2Desc')}
                 </p>
               </div>
-              <div className="mt-4 flex items-center justify-end">
-                <div className="w-7 h-7 rounded-full bg-[#f4f7f5] flex items-center justify-center text-[#07503c] group-hover:bg-[#07503c] group-hover:text-white transition">
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-0.5 transition" />
-                </div>
+              <div className="pt-2">
+                <span className="text-xs font-semibold text-gray-700 hover:text-emerald-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  {t('common.viewDetails')}
+                </span>
               </div>
             </Link>
 
             {/* CARD 3: GOVERNMENT SCHEMES & LOANS */}
             <Link
               to="/schemes"
-              className="service-card group bg-white border border-[#e2e7e7] rounded-xl p-5 shadow-sm flex flex-col justify-between"
+              className="group bg-white border border-gray-200/90 rounded-2xl p-5 sm:p-6 shadow-2xs hover:shadow-md transition flex flex-col justify-between"
             >
               <div>
-                <div className="w-[52px] h-[52px] rounded-full bg-[#e3f1e7] flex items-center justify-center text-2xl text-[#07503c] mb-3 group-hover:bg-[#d2edd9] transition">
+                <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-2xl text-slate-700 mb-4 group-hover:scale-105 transition-transform">
                   🏛️
                 </div>
-                <h3 className="text-[17px] font-bold text-[#0b4b3d] group-hover:text-[#07503c] mb-1.5">
+                <h3 className="text-[17px] font-bold text-[#111827] group-hover:text-[#07503c] mb-2">
                   {t('service3Title')}
                 </h3>
-                <p className="text-sm text-[#61717e] leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-6">
                   {t('service3Desc')}
                 </p>
               </div>
-              <div className="mt-4 flex items-center justify-end">
-                <div className="w-7 h-7 rounded-full bg-[#f4f7f5] flex items-center justify-center text-[#07503c] group-hover:bg-[#07503c] group-hover:text-white transition">
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-0.5 transition" />
-                </div>
+              <div className="pt-2">
+                <span className="text-xs font-semibold text-gray-700 hover:text-emerald-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  {t('common.viewDetails')}
+                </span>
               </div>
             </Link>
 
             {/* CARD 4: REPORT CROP PROBLEMS */}
             <Link
               to="/report-problem"
-              className="service-card group bg-white border border-[#e2e7e7] rounded-xl p-5 shadow-sm flex flex-col justify-between"
+              className="group bg-white border border-gray-200/90 rounded-2xl p-5 sm:p-6 shadow-2xs hover:shadow-md transition flex flex-col justify-between"
             >
               <div>
-                <div className="w-[52px] h-[52px] rounded-full bg-[#e3f1e7] flex items-center justify-center text-2xl text-[#07503c] mb-3 group-hover:bg-[#d2edd9] transition">
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-2xl text-emerald-700 mb-4 group-hover:scale-105 transition-transform">
                   🐛
                 </div>
-                <h3 className="text-[17px] font-bold text-[#0b4b3d] group-hover:text-[#07503c] mb-1.5">
+                <h3 className="text-[17px] font-bold text-[#111827] group-hover:text-[#07503c] mb-2">
                   {t('service4Title')}
                 </h3>
-                <p className="text-sm text-[#61717e] leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-6">
                   {t('service4Desc')}
                 </p>
               </div>
-              <div className="mt-4 flex items-center justify-end">
-                <div className="w-7 h-7 rounded-full bg-[#f4f7f5] flex items-center justify-center text-[#07503c] group-hover:bg-[#07503c] group-hover:text-white transition">
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-0.5 transition" />
-                </div>
+              <div className="pt-2">
+                <span className="text-xs font-semibold text-gray-700 hover:text-emerald-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  {t('common.viewDetails')}
+                </span>
               </div>
             </Link>
           </div>
@@ -344,16 +344,16 @@ export default function Home() {
 
         {/* ================= LOCAL AGRICULTURAL SUPPORT ================= */}
         <section id="local-support">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#0b4b3d] mb-5">
+          <h2 className="text-2xl font-bold text-[#111827] mb-6">
             {t('localSupportHeading')}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {/* CARD 1: WEATHER & CROP ALERTS */}
-            <div className="bg-white border border-[#e2e7e7] rounded-xl p-5 shadow-sm flex flex-col justify-between">
+            <div className="bg-white border border-gray-200/90 rounded-2xl p-5 sm:p-6 shadow-2xs flex flex-col justify-between">
               <div>
-                <div className="flex items-start justify-between mb-3">
-                  <div className="w-[52px] h-[52px] rounded-full bg-[#e3f1e7] flex items-center justify-center text-2xl">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-2xl">
                     🌦️
                   </div>
                   <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#eaf2e9] text-[#07503c]">
@@ -361,10 +361,10 @@ export default function Home() {
                   </span>
                 </div>
 
-                <h3 className="text-[17px] font-bold text-[#0b4b3d] mb-1">
+                <h3 className="text-[17px] font-bold text-[#111827] mb-1">
                   {t('card1Title')}
                 </h3>
-                <p className="text-sm text-[#61717e] leading-relaxed mb-3">
+                <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-3">
                   {t('card1Desc')}
                 </p>
 
@@ -372,7 +372,7 @@ export default function Home() {
                 <div className="bg-[#f8faf8] p-3 rounded-lg border border-[#e3ebe4] mb-3 text-xs">
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-semibold text-gray-700">{isTelugu ? 'గ్రామం ఎంచుకోండి:' : 'Select Village:'}</span>
-                    <div className="inline-flex rounded-md shadow-sm">
+                    <div className="inline-flex rounded-md shadow-2xs">
                       <button
                         onClick={() => setWeatherVillage('Prathuru')}
                         className={`px-2.5 py-1 text-xs font-semibold rounded-l-md ${weatherVillage === 'Prathuru' ? 'bg-[#07503c] text-white' : 'bg-white text-gray-700 border border-gray-200'}`}
@@ -417,10 +417,10 @@ export default function Home() {
             </div>
 
             {/* CARD 2: MARKET PRICE UPDATES */}
-            <div className="bg-white border border-[#e2e7e7] rounded-xl p-5 shadow-sm flex flex-col justify-between">
+            <div className="bg-white border border-gray-200/90 rounded-2xl p-5 sm:p-6 shadow-2xs flex flex-col justify-between">
               <div>
-                <div className="flex items-start justify-between mb-3">
-                  <div className="w-[52px] h-[52px] rounded-full bg-[#e3f1e7] flex items-center justify-center text-2xl font-bold text-[#07503c]">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-2xl font-bold text-emerald-800">
                     ₹
                   </div>
                   <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#eaf2e9] text-[#07503c]">
@@ -428,10 +428,10 @@ export default function Home() {
                   </span>
                 </div>
 
-                <h3 className="text-[17px] font-bold text-[#0b4b3d] mb-1">
+                <h3 className="text-[17px] font-bold text-[#111827] mb-1">
                   {t('card2Title')}
                 </h3>
-                <p className="text-sm text-[#61717e] leading-relaxed mb-3">
+                <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-3">
                   {t('card2Desc')}
                 </p>
 
@@ -469,10 +469,10 @@ export default function Home() {
             </div>
 
             {/* CARD 3: SOIL TESTING & CROP ADVICE */}
-            <div className="bg-white border border-[#e2e7e7] rounded-xl p-5 shadow-sm flex flex-col justify-between">
+            <div className="bg-white border border-gray-200/90 rounded-2xl p-5 sm:p-6 shadow-2xs flex flex-col justify-between">
               <div>
-                <div className="flex items-start justify-between mb-3">
-                  <div className="w-[52px] h-[52px] rounded-full bg-[#e3f1e7] flex items-center justify-center text-2xl">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-2xl text-amber-800">
                     🌾
                   </div>
                   <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#eaf2e9] text-[#07503c]">
@@ -480,10 +480,10 @@ export default function Home() {
                   </span>
                 </div>
 
-                <h3 className="text-[17px] font-bold text-[#0b4b3d] mb-1">
+                <h3 className="text-[17px] font-bold text-[#111827] mb-1">
                   {t('card3Title')}
                 </h3>
-                <p className="text-sm text-[#61717e] leading-relaxed mb-3">
+                <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed mb-3">
                   {t('card3Desc')}
                 </p>
 
