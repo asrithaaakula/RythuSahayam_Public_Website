@@ -1,0 +1,24 @@
+# Node dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Python cache & virtual environment
+__pycache__/
+*.py[cod]
+*$py.class
+backend/__pycache__/
+backend/venv/
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# SQLite database (can be re-seeded via python seed_data.py)
+backend/database/*.db
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+Thumbs.db
+.DS_Store

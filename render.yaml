@@ -1,0 +1,67 @@
+# Render Blueprint specification for RythuSahayam
+# Documentation: https://render.com/docs/blueprint-spec
+
+services:
+  # ====================================================================
+  # OPTION 1: UNIFIED FULL-STACK SERVICE (RECOMMENDED)
+  # Builds both React frontend and Flask backend into a single Web Service.
+  # Fits cleanly in Render Free Tier and avoids any CORS issues.
+  # ====================================================================
+  - type: web
+    name: rythusahayam-app
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "cd frontend && npm install && npm run build && cd ../backend && pip install -r requirements.txt"
+    startCommand: "cd backend && gunicorn app:app --bind 0.0.0.0:$PORT --workers 2"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: NODE_VERSION
+        value: 20.12.0
+      - key: SECRET_KEY
+        generateValue: true
+      - key: FLASK_ENV
+        value: production
+
+  # ====================================================================
+  # OPTION 2: STANDALONE BACKEND API (For Decoupled Architecture)
+  # If you prefer running frontend and backend as two independent services.
+  # ====================================================================
+  - type: web
+    name: rythusahayam-api
+    env: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT --workers 2"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: SECRET_KEY
+        generateValue: true
+      - key: FLASK_ENV
+        value: production
+
+  # ====================================================================
+  # OPTION 2 (CONTINUED): STANDALONE FRONTEND STATIC SITE
+  # ====================================================================
+  - type: web
+    name: rythusahayam-frontend
+    env: static
+    region: oregon
+    plan: free
+    rootDir: frontend
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: "dist"
+    routes:
+      - type: rewrite
+        source: "/*"
+        destination: "/index.html"
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: rythusahayam-api
+          property: url
