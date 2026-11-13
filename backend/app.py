@@ -14,7 +14,19 @@ from database import SessionLocal, init_db
 from models import User, Complaint, ComplaintTimeline, CropGuidance, Scheme, MarketPrice, Announcement, Feedback
 from seed_data import seed_database
 
-FRONTEND_DIST = os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'frontend', 'dist'))
+# Robust path resolution for frontend dist across all deployment directory layouts
+candidate_dist_paths = [
+    os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'frontend', 'dist')),
+    os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'frontend', 'dist')),
+    os.path.abspath(os.path.join(os.getcwd(), 'frontend', 'dist')),
+    os.path.abspath(os.path.join(os.path.dirname(__file__), 'dist')),
+]
+
+FRONTEND_DIST = candidate_dist_paths[0]
+for p in candidate_dist_paths:
+    if os.path.isdir(p) and os.path.isfile(os.path.join(p, 'index.html')):
+        FRONTEND_DIST = p
+        break
 
 app = Flask(__name__, static_folder=None)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
